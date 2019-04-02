@@ -33,7 +33,12 @@ public class HashTable {
 	}
 	
 	public int get(int data) {
+		int index = hashFunc(data);
 		
+		if(table[index] == data)
+			return table[index];
+		
+		return quadraticGet(data, index);
 	}
 	
 	private boolean isFull() {
@@ -51,11 +56,27 @@ public class HashTable {
 	}
 	
 	private void migrate() {
+		if(!isFull())
+			return;
+		
 		
 	}
 	
-	private int nextPrime() {
-		
+	private int nextPrime(int currSize) {
+		int counter;
+		currSize++;   
+		while(true){
+		    counter = 0;
+		    for(int i = 2; i <= Math.sqrt(currSize); i ++)
+		    	if(currSize % i == 0)  counter++;
+		    
+		    if(counter == 0)
+		    	return currSize;
+		    else {
+		    	currSize++;
+		    	continue;
+		    }
+		 }
 	}
 	
 	private void quadraticInsert(int data, int initIndex) {
@@ -65,6 +86,9 @@ public class HashTable {
 		while(!inserted) {
 			int nextIndex = initIndex + (int)Math.pow(counter, 2);
 			
+			if(nextIndex >= table.length)
+				nextIndex = table.length - nextIndex;
+			
 			if(table[nextIndex] == -1) {
 				table[nextIndex] = data;
 				inserted = true;
@@ -72,6 +96,24 @@ public class HashTable {
 				counter++;
 			}
 		}
+	}
+	
+	private int quadraticGet(int data, int initIndex) {
+		int counter = 1;
+		
+		while(counter < 7) {
+			int nextIndex = initIndex + (int)Math.pow(counter, 2);
+			
+			if(nextIndex >= table.length)
+				nextIndex = table.length - nextIndex;
+			
+			if(table[nextIndex] == data)
+				return table[nextIndex];
+			
+			counter++;	
+		}
+		
+		return -1;
 	}
 	
 	
