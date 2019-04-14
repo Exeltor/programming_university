@@ -10,6 +10,8 @@ public class Ejercicio2 {
 		tree.insert(30);
 		tree.insert(40);
 		
+		
+		//Referirse a la linea 119 de la clase Tree.java
 		System.out.println(tree.getHeight());
 		
 	}

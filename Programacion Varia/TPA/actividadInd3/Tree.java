@@ -2,7 +2,7 @@ package actividadInd3;
 
 public class Tree {
 	
-Node mainRoot;
+	Node mainRoot;
 	
 	public Tree() {
 		mainRoot = null;

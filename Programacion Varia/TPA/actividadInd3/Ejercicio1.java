@@ -11,6 +11,7 @@ public class Ejercicio1 {
 		tree.insert(40);
 		tree.insert(5);
 		
+		//Referirse a la linea 105 de la clase Tree.java
 		System.out.println(tree.getCount());
 		
 	}
