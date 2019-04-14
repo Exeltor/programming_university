@@ -9,10 +9,10 @@ public class Tree {
 	}
 	
 	public void insert(int data) {
-    if(mainRoot == null)
-      mainRoot = new Node(data, null, null);
-    else
-      insertRecursive(data, mainRoot);
+		if(mainRoot == null)
+			mainRoot = new Node(data, null, null);
+		else
+			insertRecursive(data, mainRoot);
 	}
 	
 	private void insertRecursive(int data, Node currNode) {	
