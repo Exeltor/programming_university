@@ -53,47 +53,47 @@ public class BinaryTree<T extends Comparable<T>> {
 	}
 	
 	public void printDLR() {
-		DLRrecursive(mainRoot);
+		recursiveDLR(mainRoot);
 		System.out.println();
 	}
 	
 	public void printLDR() {
-		LDRrecursive(mainRoot);
+		recursiveLDR(mainRoot);
 		System.out.println();
 	}
 	
 	public void printLRD() {
-		LRDrecursive(mainRoot);
+		recursiveLRD(mainRoot);
 		System.out.println();
 	}
 	
-	private void DLRrecursive(Node<T> currNode) {
+	private void recursiveDLR(Node<T> currNode) {
 		if(currNode == null)
 			return;
 		
 		System.out.print(currNode.data + " ");
 		
-		DLRrecursive(currNode.left);
-		DLRrecursive(currNode.right);
+		recursiveDLR(currNode.left);
+		recursiveDLR(currNode.right);
 		
 	}
 	
-	private void LDRrecursive(Node<T> currNode) {
+	private void recursiveLDR(Node<T> currNode) {
 		if(currNode == null)
 			return;
 		
-		LDRrecursive(currNode.left);
+		recursiveLDR(currNode.left);
 		System.out.print(currNode.data + " ");
-		LDRrecursive(currNode.right);
+		recursiveLDR(currNode.right);
 		
 	}
 	
-	private void LRDrecursive(Node<T> currNode) {
+	private void recursiveLRD(Node<T> currNode) {
 		if(currNode == null)
 			return;
 		
-		LRDrecursive(currNode.left);
-		LRDrecursive(currNode.right);
+		recursiveLRD(currNode.left);
+		recursiveLRD(currNode.right);
 		System.out.print(currNode.data + " ");
 		
 	}
